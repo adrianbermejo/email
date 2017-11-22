@@ -69,13 +69,13 @@ public class MailClient
      public void reendMailItem()
     {
         MailItem item = server.getNextMailItem(user);
-        asunto = "re: " + item.getasunto();
-        mensaje = "gracias por su mensaje\n" + item.getMessage();
+       
        if(item == null) {
             System.out.println("No new mail.");
         }
         else {
-           
+            asunto = "re: " + item.getasunto();
+        mensaje = "gracias por su mensaje\n" + item.getMessage();
         sendMailItem(item.getFrom(),asunto, mensaje);
         server.post(item);
        }
